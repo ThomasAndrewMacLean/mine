@@ -4,12 +4,13 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "start": "hrs src",
+    "start": "hrs -p 1234 src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "simple-hot-reload-server": "^1.1.12"
   }
 }
