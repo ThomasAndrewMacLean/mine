@@ -8,7 +8,6 @@ var canvas = document.getElementById('canvas'),
     cw = canvas.width,
     ch = canvas.height,
     cx = null,
-    fps = 30,
     bX = 30,
     bY = 30,
     mX = 150,
@@ -16,6 +15,14 @@ var canvas = document.getElementById('canvas'),
     lastTime = (new Date()).getTime(),
     currentTime = 0,
     delta = 0;
+
+
+canvas.addEventListener('click', click);
+
+function click(e) {
+    console.log(e);
+
+}
 
 function gameLoop() {
     window.requestAnimationFrame(gameLoop);

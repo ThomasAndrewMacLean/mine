@@ -4,13 +4,16 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "start": "hrs -p 1234 src",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel ./src/index.html",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
-    "simple-hot-reload-server": "^1.1.12"
+    "eslint": "^4.19.1",
+    "eslint-plugin-jest": "^21.15.1",
+    "jest": "^22.4.3",
+    "parcel-bundler": "^1.7.1"
   }
 }
