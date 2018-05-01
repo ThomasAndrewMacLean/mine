@@ -14,6 +14,7 @@ module.exports = {
         "jest"
     ],
     "rules": {
+        "no-multiple-empty-lines": 2,
         "indent": [
             "error",
             4
@@ -30,6 +31,8 @@ module.exports = {
             "error",
             "always"
         ],
+        "no-var": 2,
+        "prefer-const": 2,
         "no-console": 1,
         "no-debugger": 1
     }

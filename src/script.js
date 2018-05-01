@@ -1,54 +1,53 @@
-var vendors = ['webkit', 'moz'];
-for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-    window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
-    window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] || window[vendors[x] + 'CancelRequestAnimationFrame'];
-}
+import Cell from './cell';
 
-var canvas = document.getElementById('canvas'),
-    cw = canvas.width,
-    ch = canvas.height,
-    cx = null,
-    bX = 30,
-    bY = 30,
-    mX = 150,
-    mY = 300,
-    lastTime = (new Date()).getTime(),
-    currentTime = 0,
-    delta = 0;
+const canvas = document.getElementById('canvas');
+
+const cw = canvas.width;
+const ch = cw;//canvas.height;
+
+const heightHeader = 50;
+
+const cells = [];
+
+const numberOfCells = 100;
+const numberOfCellsInRow = 10;
+let ctx = null;
 
 
 canvas.addEventListener('click', click);
 
 function click(e) {
-    console.log(e);
+    const x = e.offsetX;
+    const y = e.offsetY - heightHeader;
 
-}
+    const xCell = Math.floor(x / (cw / numberOfCellsInRow));
+    const yCell = Math.floor(y / (ch / (numberOfCells / numberOfCellsInRow)));
 
-function gameLoop() {
-    window.requestAnimationFrame(gameLoop);
+    const c = (yCell) * 10 + xCell;
 
-    currentTime = (new Date()).getTime();
-    delta = (currentTime - lastTime) / 1000;
-    cx.clearRect(0, 0, cw, cw);
-
-    cx.beginPath();
-    cx.fillStyle = 'blue';
-    cx.arc(bX, bY, 20, 0, Math.PI * 360);
-    cx.fill();
-    if (bX >= cw - 14 || bX <= 14) {
-        mX *= -1;
-    }
-    else if (bY >= ch - 14 || bY <= 14) {
-        mY *= -1;
-    }
-
-    bX += (mX * delta);
-    bY += (mY * delta);
-
-    lastTime = currentTime;
+    cells[c].click(ctx);
 }
 
 if (typeof (canvas.getContext) !== undefined) {
-    cx = canvas.getContext('2d');
-    gameLoop();
+    ctx = canvas.getContext('2d');
+    ctx.strokeStyle = 'white';
+    ctx.fillStyle = 'lightGrey';
+
+    const widthCell = (cw / numberOfCellsInRow);
+    const heightCell = (ch / (numberOfCells / numberOfCellsInRow));
+    let counterX = 0;
+    let counterY = heightHeader;
+
+    for (let i = 0; i < numberOfCells; i++) {
+        const c = new Cell(counterX, counterY, widthCell, heightCell);
+        cells.push(c);
+        c.draw(ctx);
+
+        counterX += widthCell;
+
+        if (counterX > cw - widthCell) {
+            counterY += heightCell;
+            counterX = 0;
+        }
+    }
 }
