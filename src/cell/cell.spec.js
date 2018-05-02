@@ -22,7 +22,7 @@ describe('Cell tests', () => {
         try {
             new Cell(undefined, 0, 0, 0);
         } catch (err) {
-            expect(err.message).toBe('xxx is required!');
+            expect(err.message).toBe('x is required!');
         }
     });
     it('should have y', () => {

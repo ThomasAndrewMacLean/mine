@@ -1,6 +1,6 @@
 @import './reset.css';
 body{
-    background: greenyellow;
+    background: goldenrod;
     display: flex;
     justify-content: center;
     align-items: center;
