@@ -1,5 +1,5 @@
 @import './reset.css';
-body{
+body {
     background: goldenrod;
     display: flex;
     justify-content: center;
@@ -10,15 +10,15 @@ body{
     flex-direction: column;
 }
 
-canvas{
+canvas {
     cursor: pointer;
     background: white;
 }
-button{
-    margin-top:20px;
+
+button {
+    margin-top: 20px;
     height: 50px;
-    width:350px;
-    /* width: 100%; */
+    width: 350px;
 }
 
 .noselect {
@@ -29,5 +29,6 @@ button{
     -ms-user-select: none;
     user-select: none;
     outline: none;
-    -webkit-tap-highlight-color: rgba(255, 255, 255, 0); /* mobile webkit */
-  }
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    /* mobile webkit */
+}

@@ -60,7 +60,9 @@ class Board {
         if (y < 0) {
             return;
         }
-        if (this.gameIsOver) { return; }
+        if (this.gameIsOver) {
+            return;
+        }
 
         const xCell = Math.floor(x / (this.cw / this.numberOfCellsInRow));
         const yCell = Math.floor(y / (this.ch / (this.numberOfCells / this.numberOfCellsInRow)));
@@ -103,7 +105,9 @@ class Board {
         this.ctx.fillText(this.numberOfClicks, 10, 40);
     }
     setTimer() {
-        if (this.gameIsOver) { return; }
+        if (this.gameIsOver) {
+            return;
+        }
         this.currentTime = (new Date()).getTime();
         const numberOfSecondsPassed = Math.floor((this.currentTime - this.startTime) / 1000);
         this.ctx.clearRect(this.cw - 100, 0, 300, 50);

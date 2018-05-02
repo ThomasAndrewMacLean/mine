@@ -52,7 +52,9 @@ class Cell {
         return 'isBomb';
     }
     click(ctx, bombCount) {
-        if (this.isClicked) { return false; }
+        if (this.isClicked) {
+            return false;
+        }
         this.draw(ctx, 'gray', bombCount);
         this.isClicked = true;
         return true;

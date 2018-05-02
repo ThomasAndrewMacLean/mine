@@ -10,7 +10,20 @@ describe('Board tests', () => {
     beforeEach(() => {
         board = new Board(100, 10, 50, 10);
         //    board.canvas = {width:50};
-        board.canvas = { getContext: () => { return { stroke: () => { }, fill: () => { }, arc: () => { }, fillRect: () => { }, beginPath: () => { }, strokeRect: () => { }, fillText: () => { }, clearRect: () => { } }; } };
+        board.canvas = {
+            getContext: () => {
+                return {
+                    stroke: () => {},
+                    fill: () => {},
+                    arc: () => {},
+                    fillRect: () => {},
+                    beginPath: () => {},
+                    strokeRect: () => {},
+                    fillText: () => {},
+                    clearRect: () => {}
+                };
+            }
+        };
         //  board.ctx = setupMockCtx();
         cell = new Cell(0, 0, 0, 0);
         jest.clearAllMocks();
