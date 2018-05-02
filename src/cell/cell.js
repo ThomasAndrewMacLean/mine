@@ -19,12 +19,8 @@ class Cell {
     checkIsBomb() {
         return this.isBomb;
     }
-    setBomb(ctx) {
+    setBomb() {
         this.isBomb = true;
-        ctx.beginPath();
-        ctx.arc(this.x + this.height / 3 + 7, this.y + this.height / 3 + 7, this.height / 3, 0, 2 * Math.PI);
-        ctx.fill();
-        ctx.stroke();
     }
     drawFlag(ctx) {
         ctx.beginPath();
