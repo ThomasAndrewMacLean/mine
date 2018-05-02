@@ -5,12 +5,16 @@
   "main": "script.js",
   "scripts": {
     "start": "parcel ./src/index.html",
-    "test": "jest"
+    "test": "jest --watchAll",
+    "testOnce": "jest"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "babel-preset-env": "^1.6.1"
+  },
   "devDependencies": {
+    "@types/jest": "^22.2.3",
     "eslint": "^4.19.1",
     "eslint-plugin-jest": "^21.15.1",
     "jest": "^22.4.3",
