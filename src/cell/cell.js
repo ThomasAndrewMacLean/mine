@@ -26,7 +26,13 @@ class Cell {
         ctx.fill();
         ctx.stroke();
     }
-
+    drawFlag(ctx) {
+        ctx.beginPath();
+        ctx.strokeStyle = 'green';
+        ctx.arc(this.x + this.height / 3 + 7, this.y + this.height / 3 + 7, this.height / 3, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+    }
     draw(ctx, color, text) {
         ctx.fillStyle = color;
         ctx.strokeStyle = 'white';
@@ -37,14 +43,18 @@ class Cell {
             ctx.fillText(text, this.x + this.width / 4, this.y + this.height / 1.3);
         }
         if (this.isBomb) {
-            ctx.strokeStyle = 'red';
-            ctx.fillStyle = 'black';
-            ctx.beginPath();
-            ctx.arc(this.x + this.height / 3 + 7, this.y + this.height / 3 + 7, this.height / 3, 0, 2 * Math.PI);
-            ctx.fill();
-            ctx.stroke();
-            return 'isBomb';
+            this.drawBomb(ctx);
         }
+    }
+
+    drawBomb(ctx) {
+        ctx.strokeStyle = 'red';
+        ctx.fillStyle = 'black';
+        ctx.beginPath();
+        ctx.arc(this.x + this.height / 3 + 7, this.y + this.height / 3 + 7, this.height / 3, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+        return 'isBomb';
     }
 
     click(ctx, bombCount) {

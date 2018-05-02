@@ -61,35 +61,48 @@ class Board {
         const x = e.offsetX;
         const y = e.offsetY - this.heightHeader;
         if (y < 0) {
-            this.newGame();
             return;
         }
         if (this.gameIsOver) { return; }
 
         const xCell = Math.floor(x / (this.cw / this.numberOfCellsInRow));
         const yCell = Math.floor(y / (this.ch / (this.numberOfCells / this.numberOfCellsInRow)));
-        const c = (yCell) * 10 + xCell;
+        const c = (yCell) * this.numberOfCellsInRow + xCell;
+        this.reveal(c, true);
+
+        if (this.cells.filter(c => c.isClicked).length === this.numberOfCells - this.numberOfBombs) {
+            this.gameIsOver = true;
+
+            this.cells.filter(c => c.isBomb).map(c => c.drawFlag(this.ctx));
+        }
+
+    }
+
+    reveal(c, isManualClick) {
         const res = this.getSurroundingCells(c);
-        //  console.log(res);
-
         // res.forEach(r => this.cells[r.index].draw(this.ctx, 'green', 'x'));
-
         const bombCount = res.filter(c => c.isBomb).length;
         if (this.cells[c].isBomb) {
             this.cells[c].click(this.ctx, bombCount);
-            console.log('BOOM');
-
+            this.cells.filter(c => c.isBomb).map(c => c.drawBomb(this.ctx));
             this.gameIsOver = true;
             return;
         }
 
         if (this.cells[c].click(this.ctx, bombCount)) {
-            this.numberOfClicks++;
-            this.setNumberOfClicks();
+            if (isManualClick) {
+                this.numberOfClicks++;
+                this.setNumberOfClicks();
+            }
+
+            if (bombCount === 0) {
+                res.forEach(c => this.reveal(c.index));
+            }
         }
     }
+
     setNumberOfClicks() {
-        this.ctx.clearRect(10, 0, 300, 50);
+        this.ctx.clearRect(10, 0, 100, 50);
         this.ctx.font = '30px Verdana';
         this.ctx.fillStyle = 'goldenrod';
         this.ctx.fillText(this.numberOfClicks, 10, 40);
@@ -115,12 +128,12 @@ class Board {
 
         this.setNumberOfClicks();
 
-        const widthCell = (this.cw / 10);
-        const heightCell = (this.ch / (100 / 10));
+        const widthCell = (this.cw / this.numberOfCellsInRow);
+        const heightCell = (this.ch / (this.numberOfCells / this.numberOfCellsInRow));
         let counterX = 0;
         let counterY = 50;
 
-        for (let i = 0; i < 100; i++) {
+        for (let i = 0; i < this.numberOfCells; i++) {
             const c = new Cell(counterX, counterY, widthCell, heightCell, i);
             this.addCell(c);
             c.draw(this.ctx, 'lightGrey');

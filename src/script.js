@@ -7,7 +7,7 @@ for (let x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
     window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] || window[vendors[x] + 'CancelRequestAnimationFrame'];
 }
 
-const board = new Board(100, 10, 50, 10);
+const board = new Board(64, 8, 50, 10);
 
 const gameLoop = () => {
     window.requestAnimationFrame(gameLoop);
@@ -31,3 +31,14 @@ if (typeof (board.canvas.getContext) !== undefined) {
 
     newGame();
 }
+
+document.getElementById('newGameButton').addEventListener('click', () => {
+    newGame();
+});
+
+window.addEventListener('load', function () {
+    setTimeout(function () {
+        // This hides the address bar:
+        window.scrollTo(0, 1);
+    }, 10);
+});

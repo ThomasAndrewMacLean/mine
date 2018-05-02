@@ -1,0 +1,33 @@
+@import './reset.css';
+body{
+    background: goldenrod;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+canvas{
+    cursor: pointer;
+    background: white;
+}
+button{
+    margin-top:20px;
+    height: 50px;
+    width:350px;
+    /* width: 100%; */
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0); /* mobile webkit */
+  }
