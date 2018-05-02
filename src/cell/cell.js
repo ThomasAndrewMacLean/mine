@@ -42,7 +42,6 @@ class Cell {
             this.drawBomb(ctx);
         }
     }
-
     drawBomb(ctx) {
         ctx.strokeStyle = 'red';
         ctx.fillStyle = 'black';
@@ -52,14 +51,12 @@ class Cell {
         ctx.stroke();
         return 'isBomb';
     }
-
     click(ctx, bombCount) {
         if (this.isClicked) { return false; }
         this.draw(ctx, 'gray', bombCount);
         this.isClicked = true;
         return true;
     }
-
 }
 
 export default Cell;

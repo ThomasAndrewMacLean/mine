@@ -15,7 +15,6 @@ class Board {
         this.ch = this.canvas && this.canvas.width;
         this.cells = [];
     }
-
     addCell(cell) {
         return this.cells.push(cell);
     }
@@ -34,7 +33,6 @@ class Board {
             }
         }
     }
-
     getSurroundingCells(cellIndex) {
         const result = [];
 
@@ -55,7 +53,6 @@ class Board {
 
         return result;
     }
-
     getCellByClick(e) {
 
         const x = e.offsetX;
@@ -77,7 +74,6 @@ class Board {
         }
 
     }
-
     reveal(c, isManualClick) {
         const res = this.getSurroundingCells(c);
         // res.forEach(r => this.cells[r.index].draw(this.ctx, 'green', 'x'));
@@ -100,7 +96,6 @@ class Board {
             }
         }
     }
-
     setNumberOfClicks() {
         this.ctx.clearRect(10, 0, 100, 50);
         this.ctx.font = '30px Verdana';
