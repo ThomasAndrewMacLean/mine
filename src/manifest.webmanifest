@@ -4,7 +4,9 @@
     "start_url": ".",
     "display": "standalone",
     "background_color": "#378E01",
+    "theme_color": "aliceblue",
     "description": "Play mineZweaper",
+    "orientation":"portrait",
     "icons": [{
         "src": "images/iconmine48.png",
         "sizes": "48x48",
