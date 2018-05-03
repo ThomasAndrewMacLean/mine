@@ -1,5 +1,4 @@
 import Board from './board/board';
-import register from './sw';
 
 const vendors = ['webkit', 'moz'];
 for (let x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
@@ -37,5 +36,8 @@ document.getElementById('newGameButton').addEventListener('click', () => {
 });
 
 window.addEventListener('load', function () {
-    register();
+    
+    if ('serviceWorker' in navigator && !document.URL.includes('localhost')) {
+        navigator.serviceWorker.register('service-worker.js');
+    }
 });
