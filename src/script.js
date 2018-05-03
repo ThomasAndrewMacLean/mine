@@ -1,5 +1,5 @@
 import Board from './board/board';
-
+import register from './sw';
 
 const vendors = ['webkit', 'moz'];
 for (let x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
@@ -37,8 +37,5 @@ document.getElementById('newGameButton').addEventListener('click', () => {
 });
 
 window.addEventListener('load', function () {
-    setTimeout(function () {
-        // This hides the address bar:
-        window.scrollTo(0, 1);
-    }, 10);
+    register();
 });
