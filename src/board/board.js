@@ -19,6 +19,7 @@ class Board {
         return this.cells.push(cell);
     }
     setBombs() {
+
         if (this.numberOfCells < this.numberOfBombs) {
             throw new Error('too many bombs...');
         }
@@ -71,8 +72,8 @@ class Board {
 
         if (this.cells.filter(c => c.isClicked).length === this.numberOfCells - this.numberOfBombs) {
             this.gameIsOver = true;
-
             this.cells.filter(c => c.isBomb).map(c => c.drawFlag(this.ctx));
+            this.saveScore();
         }
 
     }
@@ -97,6 +98,29 @@ class Board {
                 res.forEach(c => this.reveal(c.index));
             }
         }
+    }
+    saveScore() {
+        const defaultName = localStorage.getItem('name') || '';
+        const score = ((this.currentTime - this.startTime) / 10) - this.numberOfClicks;
+        const name = prompt('Your score was ' + score + '. Please Enter Your Name:', defaultName);
+        localStorage.setItem('name', name);
+
+        fetch('https://mjbwnqaj06.execute-api.eu-west-1.amazonaws.com/prod/setScore', {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+
+            method: 'POST',
+            body: JSON.stringify({
+                name,
+                score
+            })
+        }).then(response => {
+            return response.json();
+        }).catch(error => {
+            return error;
+        });
     }
     setNumberOfClicks() {
         this.ctx.clearRect(10, 0, 100, 50);

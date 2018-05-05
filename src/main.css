@@ -1,9 +1,9 @@
 @import './reset.css';
 body {
     background: goldenrod;
-    min-height: 100vh;
+    /* min-height: 100vh;
     overflow: hidden !important;
-    width: 100vw;
+    width: 100vw; */
 }
 
 nav {
@@ -31,7 +31,12 @@ li {
     overflow: hidden;
 }
 
+.menu-item {
+    z-index: 666;
+}
+
 .main {
+    margin-top: -100px;
     position: absolute;
     height: 100%;
     width: 100vw;
