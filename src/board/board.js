@@ -101,11 +101,11 @@ class Board {
     }
     saveScore() {
         const defaultName = localStorage.getItem('name') || '';
-        const score = ((this.currentTime - this.startTime) / 10) - this.numberOfClicks;
+        const score = (1000 - ((this.currentTime - this.startTime) / 10)) - this.numberOfClicks;
         const name = prompt('Your score was ' + score + '. Please Enter Your Name:', defaultName);
         localStorage.setItem('name', name);
 
-        fetch('https://mjbwnqaj06.execute-api.eu-west-1.amazonaws.com/prod/setScore', {
+        fetch('https://mjbwnqaj06.execute-api.eu-west-1.amazonaws.com/prod/sethighscore', {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
