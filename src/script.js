@@ -35,8 +35,16 @@ document.getElementById('newGameButton').addEventListener('click', () => {
     newGame();
 });
 
+
 window.addEventListener('load', function () {
-    
+
+    //LOAD DATA
+    fetch('https://mjbwnqaj06.execute-api.eu-west-1.amazonaws.com/prod/gethighscores')
+        .then(res => res.json()).then(r => {
+            console.log(r);
+        });
+
+
     if ('serviceWorker' in navigator && !document.URL.includes('localhost')) {
         navigator.serviceWorker.register('service-worker.js');
     }

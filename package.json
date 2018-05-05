@@ -5,14 +5,18 @@
   "main": "script.js",
   "scripts": {
     "build": "jest && parcel build ./src/index.html",
-    "start": "parcel ./src/index.html",
+    "start": "serve ./dist --single",
+    "start-dev": "parcel ./src/index.html",
     "test": "jest --watchAll",
     "testOnce": "jest"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "babel-preset-env": "^1.6.1"
+    "babel-preset-env": "^1.6.1",
+    "serve": "^6.5.6",
+    "vue": "^2.5.16",
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "@types/jest": "^22.2.3",
