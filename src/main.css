@@ -1,27 +1,7 @@
 @import './reset.css';
 body {
-    background: goldenrod;
-    /* min-height: 100vh;
-    overflow: hidden !important;
-    width: 100vw; */
-}
-
-nav {
-    height: 50px;
-}
-
-ul {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 5px;
-}
-
-li {
-    height: 50px;
-    line-height: 50px;
-    font-size: 20px;
-    border: 1px solid greenyellow;
-    padding: 0 10px;
+    background: cadetblue;
+    color: white;
     font-family: 'verdana';
 }
 
@@ -29,10 +9,6 @@ li {
     /* position: relative; */
     width: 100vw !important;
     overflow: hidden;
-}
-
-.menu-item {
-    z-index: 666;
 }
 
 .main {

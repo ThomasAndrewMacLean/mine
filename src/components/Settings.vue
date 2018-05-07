@@ -1,15 +1,17 @@
 <template>
   <div class="main">
- <button v-on:click="addNumberBoardSize(-1)">-</button>
- {{boardSize}}
- <button v-on:click="addNumberBoardSize(+1)">+</button>
-  <button v-on:click="addNumberOfBombs(-1)">-</button>
- {{numberOfBombs}}
- <button v-on:click="addNumberOfBombs(+1)">+</button>
- 
-
- <button v-on:click="save()">SAVE</button>
- </div>
+    <div class="button-wrap">
+      <button class="plus-button" v-on:click="addNumberBoardSize(-1)">-</button>
+        {{boardSize}}
+      <button class="plus-button" v-on:click="addNumberBoardSize(+1)">+</button>
+    </div>
+     <div class="button-wrap">
+      <button class="plus-button" v-on:click="addNumberOfBombs(-1)">-</button>
+        {{numberOfBombs}}
+      <button class="plus-button" v-on:click="addNumberOfBombs(+1)">+</button>
+    </div>
+    <button v-on:click="save()">SAVE</button>
+  </div>
 </template>
 
 <script>
@@ -55,5 +57,16 @@ export default {
 </script>
 
 <style>
-
+.plus-button {
+  width: 50px;
+  margin: 0;
+}
+.button-wrap {
+  width: 350px;
+  display: flex;
+  flex-direction: row;
+  margin-top:15px;
+  align-items: center;
+  justify-content: space-between;
+}
 </style>
