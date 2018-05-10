@@ -25,7 +25,7 @@ class Cell {
     drawFlag(ctx) {
         ctx.beginPath();
         ctx.strokeStyle = 'green';
-        ctx.arc(this.x + this.height / 3 + 7, this.y + this.height / 3 + 7, this.height / 3, 0, 2 * Math.PI);
+        ctx.arc(this.x + this.height / 2, this.y + this.height / 2, this.height / 3, 0, 2 * Math.PI);
         ctx.fill();
         ctx.stroke();
     }
@@ -35,8 +35,9 @@ class Cell {
         ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.strokeRect(this.x, this.y, this.width, this.height);
         if (text) {
+            ctx.textAlign = 'center';
             ctx.fillStyle = 'white';
-            ctx.fillText(text, this.x + this.width / 4, this.y + this.height / 1.3);
+            ctx.fillText(text, this.x + this.width / 2, this.y + this.height / 2 + 10);
         }
         if (this.isBomb) {
             this.drawBomb(ctx);
@@ -46,7 +47,7 @@ class Cell {
         ctx.strokeStyle = 'red';
         ctx.fillStyle = 'black';
         ctx.beginPath();
-        ctx.arc(this.x + this.height / 3 + 7, this.y + this.height / 3 + 7, this.height / 3, 0, 2 * Math.PI);
+        ctx.arc(this.x + this.height / 2, this.y + this.height / 2, this.height / 3, 0, 2 * Math.PI);
         ctx.fill();
         ctx.stroke();
         return 'isBomb';

@@ -106,10 +106,10 @@ class Board {
         hacky.showModal = true;
     }
     setNumberOfClicks() {
-        this.ctx.clearRect(10, 0, 100, 50);
+        this.ctx.clearRect(0, 0, 100, 50);
         this.ctx.font = '30px Verdana';
         this.ctx.fillStyle = '#00d1b2';
-        this.ctx.fillText(this.numberOfClicks, 10, 40);
+        this.ctx.fillText(this.numberOfClicks, 20, 40);
     }
     setTimer() {
         if (this.gameIsOver) {
@@ -117,7 +117,7 @@ class Board {
         }
         this.currentTime = (new Date()).getTime();
         const numberOfSecondsPassed = Math.floor((this.currentTime - this.startTime) / 1000);
-        this.ctx.clearRect(this.cw - 100, 0, 300, 50);
+        this.ctx.clearRect(this.cw - 150, 0, 300, 50);
         this.ctx.font = '30px Verdana';
         this.ctx.fillStyle = '#00d1b2';
         this.ctx.fillText(numberOfSecondsPassed, this.cw - 100, 40);
