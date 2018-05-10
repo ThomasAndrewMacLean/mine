@@ -100,34 +100,15 @@ class Board {
         }
     }
     saveScore() {
-        const defaultName = localStorage.getItem('name') || '';
-        const score = (1000 - ((this.currentTime - this.startTime) / 10)) - this.numberOfClicks;
-        const name = prompt('Your score was ' + score + '. Please Enter Your Name:', defaultName);
-
-        if (!name){return;}
-        localStorage.setItem('name', name);
-
-        fetch('https://mjbwnqaj06.execute-api.eu-west-1.amazonaws.com/prod/sethighscore', {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-
-            method: 'POST',
-            body: JSON.stringify({
-                name,
-                score
-            })
-        }).then(response => {
-            return response.json();
-        }).catch(error => {
-            return error;
-        });
+        const hacky = window.app.$children[0].$children[0];
+        hacky.name = localStorage.getItem('name') || '';
+        hacky.score = (1000 - ((this.currentTime - this.startTime) / 10)) - this.numberOfClicks;
+        hacky.showModal = true;
     }
     setNumberOfClicks() {
         this.ctx.clearRect(10, 0, 100, 50);
         this.ctx.font = '30px Verdana';
-        this.ctx.fillStyle = 'goldenrod';
+        this.ctx.fillStyle = '#00d1b2';
         this.ctx.fillText(this.numberOfClicks, 10, 40);
     }
     setTimer() {
@@ -138,7 +119,7 @@ class Board {
         const numberOfSecondsPassed = Math.floor((this.currentTime - this.startTime) / 1000);
         this.ctx.clearRect(this.cw - 100, 0, 300, 50);
         this.ctx.font = '30px Verdana';
-        this.ctx.fillStyle = 'goldenrod';
+        this.ctx.fillStyle = '#00d1b2';
         this.ctx.fillText(numberOfSecondsPassed, this.cw - 100, 40);
     }
     newGame() {

@@ -22,7 +22,7 @@ export default {
   },
   mounted() {
     fetch(
-      "https://mjbwnqaj06.execute-api.eu-west-1.amazonaws.com/prod/gethighscores?limit=5"
+      'https://mjbwnqaj06.execute-api.eu-west-1.amazonaws.com/prod/gethighscores?limit=5'
     )
       .then(res => res.json())
       .then(r => {

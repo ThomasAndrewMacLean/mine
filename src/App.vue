@@ -2,7 +2,7 @@
 <div>
   <div class="navbar is-primary">
     <div class="navbar-brand">
-      <a class="navbar-item" href="#/Game">Mine</a>
+      <a class="navbar-item" @click="showNav = false" href="#/Game">Mine</a>
       <div class="navbar-burger" @click="showNav = !showNav" :class="{ 'is-active': showNav }"  >
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
