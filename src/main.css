@@ -1,4 +1,5 @@
 @import './reset.css';
+@import 'bulma/css/bulma.css';
 body {
     background: cadetblue;
     color: white;
@@ -12,9 +13,9 @@ body {
 }
 
 .main {
-    margin-top: -100px;
+    /* margin-top: -100px; */
     position: absolute;
-    height: 100%;
+    height: calc(100vh - 52px);
     width: 100vw;
     display: flex;
     justify-content: center;
