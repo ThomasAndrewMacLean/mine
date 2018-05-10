@@ -11,7 +11,7 @@
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head">
-      <p class="modal-card-title">Save Score ({{Math.round(score * 100) / 100}}) {{score}}</p>
+      <p class="modal-card-title">Save Score ({{Math.round(score * 100) / 100}})</p>
       <button class="delete" aria-label="close" v-on:click="showModal = false"></button>
     </header>
     <section class="modal-card-body">
