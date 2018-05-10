@@ -3,7 +3,7 @@
   <div class="container">
       <div class="title">High Scores</div>
     <div class="notification" v-for="(s,i) in scores" :key="s.id">
-     {{i+1}}. {{s.name}} : <strong>{{s.score}}</strong> points
+     {{i+1}}. {{s.name}} : <strong>{{Math.round(s.score * 100) / 100}}</strong> points
     </div>
   </div>
 </div>
