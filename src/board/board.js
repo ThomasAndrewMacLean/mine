@@ -70,6 +70,10 @@ class Board {
         const c = (yCell) * this.numberOfCellsInRow + xCell;
         this.reveal(c, true);
 
+        if (this.gameIsOver) {
+            return;
+        }
+
         if (this.cells.filter(c => c.isClicked).length === this.numberOfCells - this.numberOfBombs) {
             this.gameIsOver = true;
             this.cells.filter(c => c.isBomb).map(c => c.drawFlag(this.ctx));
