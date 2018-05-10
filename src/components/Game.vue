@@ -1,7 +1,9 @@
 <template>
-    <div class="main">
-        <canvas class="noselect" id="canvas" width="350" height="400"></canvas>
-        <button class="noselect" v-on:click="newGame()">new game</button>
+    <div class="">
+      
+        <canvas class="noselect " id="canvas" width="350" height="400"></canvas>
+        <button class="noselect button is-primary is-medium is-outlined" v-on:click="newGame()">new game</button>
+      
     </div>
 </template>
 

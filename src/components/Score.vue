@@ -1,11 +1,12 @@
 <template>
-  <div class="main">
-    <ol>
-      <li v-for="s in scores" :key="s.id">
-      {{s.name}} : {{s.score}}
-      </li>
-    </ol>
+<div class="section">
+  <div class="container">
+      <div class="title">High Scores</div>
+    <div class="notification" v-for="(s,i) in scores" :key="s.id">
+     {{i+1}}. {{s.name}} : <strong>{{s.score}}</strong> points
+    </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -21,7 +22,7 @@ export default {
   },
   mounted() {
     fetch(
-      "https://mjbwnqaj06.execute-api.eu-west-1.amazonaws.com/prod/gethighscores?limit=10"
+      "https://mjbwnqaj06.execute-api.eu-west-1.amazonaws.com/prod/gethighscores?limit=5"
     )
       .then(res => res.json())
       .then(r => {
@@ -32,7 +33,5 @@ export default {
 </script>
 
 <style>
-li {
-  padding: 20px;
-}
+
 </style>

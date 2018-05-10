@@ -1,17 +1,52 @@
 <template>
-  <div class="main">
-    <div class="button-wrap">
-      <button class="plus-button" v-on:click="addNumberBoardSize(-1)">-</button>
-        {{boardSize}}
-      <button class="plus-button" v-on:click="addNumberBoardSize(+1)">+</button>
+    <section class="">
+<section class="section"> 
+  <div class="container">
+    <h1 class="title">
+            Settings
+          </h1>
+          <h2 class="subtitle">
+            Set the number of cells in the game, and the amount of bombs.
+          </h2>
     </div>
-     <div class="button-wrap">
-      <button class="plus-button" v-on:click="addNumberOfBombs(-1)">-</button>
+</section>
+    <section class="hero is-light">
+      <div class="hero-body">
+        <div class="container">
+         
+
+    <div class="columns max-width is-mobile">
+      <div class="column center">
+      <button class="button is-dark is-outlined is-medium" v-on:click="addNumberBoardSize(-1)">-</button>
+      </div>
+       <div class="column center">
+         {{boardSize}}
+         </div> 
+         <div class="column center">
+
+      <button class="button is-dark is-outlined is-medium" v-on:click="addNumberBoardSize(+1)">+</button>
+         </div>
+    </div>
+     <div class="columns max-width is-mobile level">
+       <div class="column center">
+
+      <button class="button is-dark is-outlined is-medium" v-on:click="addNumberOfBombs(-1)">-</button>
+       </div>
+       <div class="column center">
+
         {{numberOfBombs}}
-      <button class="plus-button" v-on:click="addNumberOfBombs(+1)">+</button>
+       </div>
+       <div class="column center">
+
+      <button class="button is-outlined is-dark is-medium" v-on:click="addNumberOfBombs(+1)">+</button>
+       </div>
     </div>
-    <button v-on:click="save()">SAVE</button>
-  </div>
+   
+        </div>
+      </div>
+    </section>
+    </section>
+  
 </template>
 
 <script>
@@ -30,6 +65,7 @@ export default {
       if (sqr > 3 && sqr < 12) {
         this.boardSize = sqr * sqr;
         this.numberOfBombs = sqr + 2;
+        this.save();
       }
     },
     addNumberOfBombs(number) {
@@ -41,6 +77,7 @@ export default {
         console.log("save?");
 
         this.numberOfBombs = newNumber;
+        this.save();
       }
     },
     save() {
@@ -57,16 +94,8 @@ export default {
 </script>
 
 <style>
-.plus-button {
-  width: 50px;
-  margin: 0;
-}
-.button-wrap {
-  width: 350px;
-  display: flex;
-  flex-direction: row;
-  margin-top:15px;
-  align-items: center;
-  justify-content: space-between;
+.max-width {
+  max-width: 300px;
+  margin: auto;
 }
 </style>
