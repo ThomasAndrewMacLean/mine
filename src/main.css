@@ -21,3 +21,11 @@ canvas {
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
     /* mobile webkit */
 }
+
+.modal-card-head {
+    background: #00d1b2 !important;
+}
+
+.modal-card-title {
+    color: white !important;
+}

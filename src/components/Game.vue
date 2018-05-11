@@ -19,8 +19,8 @@
   
     </section>
     <footer class="modal-card-foot">
-      <button class="button is-success" :disabled="name===''" v-on:click="saveHighScore()">Save</button>
-      <button class="button" v-on:click="showModal = false">Cancel</button>
+      <button class="button is-primary is-outlined" :disabled="name===''" v-on:click="saveHighScore()">Save</button>
+      <button class="button is-dark is-outlined" v-on:click="showModal = false">Cancel</button>
     </footer>
   </div>
 </div>
@@ -105,4 +105,5 @@ export default {
 .cols {
   flex-direction: column;
 }
+
 </style>
