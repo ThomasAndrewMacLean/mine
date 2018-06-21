@@ -30,7 +30,9 @@ export default {
     )
       .then(res => res.json())
       .then(r => {
-        this.scores = r.filter(i => i.name).sort((a, b) => a.score < b.score);
+        this.scores = r.filter(i => i.name).sort((a, b) => b.score - a.score);
+        console.log(this.scores);
+
         this.isLoading = false;
       });
   }
@@ -38,5 +40,4 @@ export default {
 </script>
 
 <style>
-
 </style>
