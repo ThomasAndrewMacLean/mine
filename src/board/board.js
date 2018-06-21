@@ -106,7 +106,8 @@ class Board {
     saveScore() {
         const hacky = window.app.$children[0].$children[0];
         hacky.name = localStorage.getItem('name') || '';
-        hacky.score = (1000 - ((this.currentTime - this.startTime) / 10)) - this.numberOfClicks;
+        // TODO : calcuate score
+        hacky.score = (1000 - ((this.currentTime - this.startTime) / 100)) - this.numberOfClicks;
         hacky.showModal = true;
     }
     setNumberOfClicks() {

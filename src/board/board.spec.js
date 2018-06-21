@@ -46,18 +46,23 @@ describe('Board tests', () => {
         board.addCell(cell);
         expect(board.cells).toHaveLength(1);
     });
+
     it('should have function getCellByClick', () => {
         expect(board.getCellByClick).toBeDefined();
     });
+
     it('should have function newGame', () => {
         expect(board.newGame).toBeDefined();
     });
+
     it('should have function setTimer', () => {
         expect(board.setTimer).toBeDefined();
     });
+
     it('should have function setBombs', () => {
         expect(board.setBombs).toBeDefined();
     });
+    
     it('setBombs should set bombs', () => {
         board.newGame();
         expect(board.cells.filter(c => c.isBomb)).toHaveLength(10);
