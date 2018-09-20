@@ -1,5 +1,7 @@
 # mine
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ThomasAndrewMacLean/mine.svg)](https://greenkeeper.io/)
+
 ## running dev server
 
 `yarn start-dev` or `npm start-dev` starts a hot reload server on [port 1234](http://localhost:1234/)
